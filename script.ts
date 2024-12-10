@@ -1,10 +1,17 @@
 import { PrismaClient } from "@prisma/client";
+import { log } from "console";
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient({ log: ["query"] });
 
 async function main() {
-  const user = await prisma.user.create({
-    data: { name: "Joey", email: "Joey@gmail.com", age: 19 },
+  // await prisma.user.deleteMany();
+  // const user = await prisma.user.create({
+  //   data: { name: "Joey", email: "Joey@gmail.com", age: 19 },
+  // });
+  const user = await prisma.user.findUnique({
+    where: {
+      email: "Joey@gmail.com",
+    },
   });
 
   console.log(user);
