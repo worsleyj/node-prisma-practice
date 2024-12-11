@@ -8,9 +8,9 @@ async function main() {
   // const user = await prisma.user.create({
   //   data: { name: "Joey", email: "Joey@gmail.com", age: 19 },
   // });
-  const user = await prisma.user.findUnique({
+  const user = await prisma.user.findMany({
     where: {
-      email: "Joey@gmail.com",
+      name: "Joey",
     },
   });
 
