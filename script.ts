@@ -13,7 +13,6 @@ async function main() {
       name: "Joey",
     },
   });
-
   console.log(user);
 }
 
